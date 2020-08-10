@@ -1,5 +1,7 @@
-using System;
+using System.Collections.Generic;
+using Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Api.Controllers
 {
@@ -7,9 +9,15 @@ namespace Api.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private readonly ShopContext _context;
+
+        public ProductsController(ShopContext context){
+            this._context = context;
+            this._context.Database.EnsureCreated();
+        }
         [HttpGet]
-        public string GetProduts(){
-            return "OK.";
+        public IEnumerable<Product> GetAllProduts(){
+            return _context.Products.ToArray();
         }
     }
 }
