@@ -19,5 +19,11 @@ namespace Api.Controllers
         public IActionResult GetAllProduts(){
             return Ok(_context.Products.ToArray());
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetProduct(int id){
+            var product = _context.Products.Find(id);
+            return Ok(product);
+        }
     }
 }
