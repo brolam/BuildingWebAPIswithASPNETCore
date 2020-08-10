@@ -16,8 +16,8 @@ namespace Api.Controllers
             this._context.Database.EnsureCreated();
         }
         [HttpGet]
-        public IEnumerable<Product> GetAllProduts(){
-            return _context.Products.ToArray();
+        public IActionResult GetAllProduts(){
+            return Ok(_context.Products.ToArray());
         }
     }
 }
