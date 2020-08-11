@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using Api.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Controllers
 {
@@ -16,13 +16,16 @@ namespace Api.Controllers
             this._context.Database.EnsureCreated();
         }
         [HttpGet]
-        public IActionResult GetAllProduts(){
-            return Ok(_context.Products.ToArray());
+        public async Task<IActionResult> GetAllProduts(){
+            return Ok(await _context.Products.ToArrayAsync());
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetProduct(int id){
-            var product = _context.Products.Find(id);
+        public async Task<IActionResult> GetProduct(int id){
+            var product = await _context.Products.FindAsync(id);
+            if ( product == null){
+               return NotFound(); 
+            }
             return Ok(product);
         }
     }
