@@ -19,9 +19,20 @@ namespace Api.Controllers
             this._context.Database.EnsureCreated();
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllProduts([FromQuery] QueryParameters queryParameters)
+        public async Task<IActionResult> GetAllProduts([FromQuery] ProductQueryParameters queryParameters)
         {
             IQueryable<Product> products = _context.Products;
+            if (queryParameters.HasSku)
+            {
+                products = products.Where(product => product.Sku == queryParameters.Sku);
+            }
+            else if (queryParameters.HasMinAndMaxPrice)
+            {
+                products = products.Where(
+                    product => product.Price >= queryParameters.MinPrice &&
+                    product.Price <= queryParameters.MaxPrice
+                );
+            }
             products = products
             .Skip(queryParameters.RegisterSkip)
             .Take(queryParameters.Size);
