@@ -26,7 +26,7 @@ namespace Api.Controllers
             {
                 products = products.Where(product => product.Sku == queryParameters.Sku);
             }
-            
+
             if (queryParameters.HasMinAndMaxPrice)
             {
                 products = products.Where(
@@ -35,10 +35,16 @@ namespace Api.Controllers
                 );
             }
 
-            if (queryParameters.HasSearch){
+            if (queryParameters.HasSearch)
+            {
                 products = products.Where(
                     product => product.Name.ToLower().Contains(queryParameters.Search.ToLower())
                 );
+            }
+
+            if (queryParameters.HasSortBy)
+            {
+                products = products.OrderByCustom(queryParameters.SortBy, queryParameters.SortOrder);
             }
             products = products
             .Skip(queryParameters.RegisterSkip)

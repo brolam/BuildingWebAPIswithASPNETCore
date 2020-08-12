@@ -1,7 +1,9 @@
 
+using Api.Models;
+
 namespace Api.Classes
 {
-    public class ProductQueryParameters : QueryParameters
+    public class ProductQueryParameters : QueryParameters<Product>
     {
         public string Sku { get; set; }
         public decimal? MinPrice { get; set; }
