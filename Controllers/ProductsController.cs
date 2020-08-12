@@ -26,11 +26,18 @@ namespace Api.Controllers
             {
                 products = products.Where(product => product.Sku == queryParameters.Sku);
             }
-            else if (queryParameters.HasMinAndMaxPrice)
+            
+            if (queryParameters.HasMinAndMaxPrice)
             {
                 products = products.Where(
                     product => product.Price >= queryParameters.MinPrice &&
                     product.Price <= queryParameters.MaxPrice
+                );
+            }
+
+            if (queryParameters.HasSearch){
+                products = products.Where(
+                    product => product.Name.ToLower().Contains(queryParameters.Search.ToLower())
                 );
             }
             products = products
