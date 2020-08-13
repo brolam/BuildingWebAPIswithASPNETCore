@@ -33,7 +33,7 @@ namespace Api.Classes
                 }
             }
         }
-        public bool HasSortBy
+        internal bool HasSortBy
         {
             get
             {

@@ -9,12 +9,12 @@ namespace Api.Classes
         public decimal? MinPrice { get; set; }
         public decimal? MaxPrice { get; set; }
         public string Search { get; set; }
-        public bool HasMinAndMaxPrice
+        internal bool HasMinAndMaxPrice
         {
             get { return MinPrice != null && MaxPrice != null; }
         }
-        public bool HasSku { get{ return string.IsNullOrEmpty(Sku) == false;} }
-        public bool HasSearch { get{ return string.IsNullOrEmpty(Search) == false;} }
+        internal bool HasSku { get{ return string.IsNullOrEmpty(Sku) == false;} }
+        internal bool HasSearch { get{ return string.IsNullOrEmpty(Search) == false;} }
 
     }
 }
