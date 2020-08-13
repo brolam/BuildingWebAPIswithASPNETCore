@@ -7,13 +7,14 @@ using System.Linq;
 
 namespace Api.Controllers
 {
-    [Route("api/{controller}")]
+    [ApiVersion("2.0")]
+    [Route("api/v{v:apiVersion}/products")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsControllerV2 : ControllerBase
     {
         private readonly ShopContext _context;
 
-        public ProductsController(ShopContext context)
+        public ProductsControllerV2(ShopContext context)
         {
             this._context = context;
             this._context.Database.EnsureCreated();
@@ -21,7 +22,7 @@ namespace Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllProduts([FromQuery] ProductQueryParameters queryParameters)
         {
-            IQueryable<Product> products = _context.Products;
+            IQueryable<Product> products = _context.Products.Where(product => product.IsAvailable == true);
             if (queryParameters.HasSku)
             {
                 products = products.Where(product => product.Sku == queryParameters.Sku);
