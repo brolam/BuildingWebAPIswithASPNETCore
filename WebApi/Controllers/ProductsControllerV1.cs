@@ -4,12 +4,14 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Api.Classes;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Controllers
 {
     [ApiVersion("1.0")]
     [Route("api/v{v:apiVersion}/products")]
     [ApiController]
+    [Authorize]
     public class ProductsControllerV1 : ControllerBase
     {
         private readonly ShopContext _context;

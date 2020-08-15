@@ -41,6 +41,13 @@ namespace BuildingWebAPIswithASPNETCore
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 //options.ApiVersionReader = new HeaderApiVersionReader("X-API-Version");
             });
+
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>{
+                    options.Authority = "http://localhost:5006";
+                    options.RequireHttpsMetadata = false;
+                    options.Audience = "hps-api";
+                });
             services.AddVersionedApiExplorer(
                 options => options.GroupNameFormat = "'v'VVV");
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
@@ -68,6 +75,8 @@ namespace BuildingWebAPIswithASPNETCore
             app.UseRouting();
 
             app.UseCors();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
