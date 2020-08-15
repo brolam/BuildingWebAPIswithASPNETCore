@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebIdentityServer", "WebIdentityServer\WebIdentityServer.csproj", "{4B8C1633-498F-49DC-96D3-C09047CDFD01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{4B8C1633-498F-49DC-96D3-C09047CDFD01}.Release|x64.Build.0 = Release|Any CPU
 		{4B8C1633-498F-49DC-96D3-C09047CDFD01}.Release|x86.ActiveCfg = Release|Any CPU
 		{4B8C1633-498F-49DC-96D3-C09047CDFD01}.Release|x86.Build.0 = Release|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Debug|x64.Build.0 = Debug|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Debug|x86.Build.0 = Debug|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Release|x64.ActiveCfg = Release|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Release|x64.Build.0 = Release|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Release|x86.ActiveCfg = Release|Any CPU
+		{4B58B30E-6272-4D5E-B1E7-CB38E84C2BDD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

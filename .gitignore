@@ -234,3 +234,8 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# Identity Jwt
+**/*.jwk
+WebIdentityServer/tempkey.jwk
+WebIdentityServer/tempkey.jwk

@@ -21,20 +21,21 @@ namespace WebIdentityServer
 
         public static IEnumerable<Client> Clients
         {
-            get {
+            get
+            {
                 return new List<Client>
                 {
                     new Client
                     {
                         ClientId = "client",
-                        AllowedScopes = { "hps-api" },
-
+                        AllowedScopes =  {"hps-api"} ,
                         AllowedGrantTypes = GrantTypes.ClientCredentials,
                         ClientSecrets =
                         {
                             new Secret("H+ Sport".Sha256())
-                        }
-                    }
+                        },
+                        AllowOfflineAccess = true
+                    },
                 };
             }
         }
